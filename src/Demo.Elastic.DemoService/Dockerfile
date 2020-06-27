@@ -1,8 +1,8 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
 WORKDIR /src
 
-COPY src/*/*.csproj ./
-RUN dotnet restore src/Demo.Elastic.DemoService/Demo.Elastic.DemoService.csproj
+COPY src/**/*.csproj ./
+RUN for p in *.csproj; do dotnet restore $p; done
 
 COPY . .
 RUN dotnet publish src/Demo.Elastic.DemoService/Demo.Elastic.DemoService.csproj -c Release -o /app
