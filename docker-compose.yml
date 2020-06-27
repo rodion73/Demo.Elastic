@@ -2,7 +2,7 @@ version: '3.8'
 services:
   demoservice:
     build:
-      context: 'git@github.com:rodion73/Demo.Elastic.git#develop
+      context: 'git@github.com:rodion73/Demo.Elastic.git#develop'
       dockerfile: 'src/Demo.Elastic.DemoService/Dockerfile'
     container_name: demo-elastic-demoservice
     ports:
