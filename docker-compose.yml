@@ -16,7 +16,8 @@ services:
     environment:
       ASPNETCORE_URLS: 'https://+:443;http://+:80'
       ASPNETCORE_Kestrel__Certificates__Default__Path: skaro.ddns.net.pfx
-      ASPNETCORE_Kestrel__Certificates__Default__Password: P@ssw0rd
+      ASPNETCORE_Kestrel__Certificates__Default__Password: P@ssw0rd,
+      Serilog__WriteTo__2__Args__nodeUris: 'http://demoelastic-search:9200'
     volumes:
     - './skaro.ddns.net.pfx:/app/skaro.ddns.net.pfx:ro'
 

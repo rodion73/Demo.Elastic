@@ -15,7 +15,8 @@ namespace Demo.Elastic.Weather
                     webBuilder.UseStartup<Startup>();
 
                     webBuilder.UseSerilog((context, configuration) =>
-                        configuration.ReadFrom.Configuration(context.Configuration)
+                        configuration
+                        .ReadFrom.Configuration(context.Configuration)
                     );
                 });
     }
