@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 
-namespace Demo.Elastic.DemoService
+namespace Demo.Elastic.Weather
 {
     public static class Program
     {

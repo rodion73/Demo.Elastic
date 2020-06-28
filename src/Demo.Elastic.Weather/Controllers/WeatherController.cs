@@ -1,7 +1,7 @@
-﻿using Demo.Elastic.DemoService.Models;
+﻿using Demo.Elastic.Weather.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Demo.Elastic.DemoService.Controllers
+namespace Demo.Elastic.Weather.Controllers
 {
     [ApiController]
     [Route("api/weather")]

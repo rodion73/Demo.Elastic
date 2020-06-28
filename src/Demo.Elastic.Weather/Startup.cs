@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Demo.Elastic.DemoService
+namespace Demo.Elastic.Weather
 {
     [SuppressMessage("Performance", "CA1822:Mark members as static")]
     [SuppressMessage("Usage", "CA1801:Review unused parameters")]

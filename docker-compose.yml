@@ -1,9 +1,10 @@
 version: '3.8'
 services:
-  demoservice:
+  weather:
     build:
       context: 'git@github.com:rodion73/Demo.Elastic.git#develop'
-      dockerfile: 'src/Demo.Elastic.DemoService/Dockerfile'
-    container_name: demo-elastic-demoservice
+      dockerfile: 'src/Demo.Elastic.Weather/Dockerfile'
+    container_name: demo-elastic-weather
     ports:
-    - '8081:80'
+    - '80:80'
+    - '443:443'

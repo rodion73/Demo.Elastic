@@ -1,4 +1,4 @@
-﻿namespace Demo.Elastic.DemoService.Models
+﻿namespace Demo.Elastic.Weather.Models
 {
     public class WeatherModel
     {
