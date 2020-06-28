@@ -1,7 +1,9 @@
 using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 
 namespace Demo.Elastic.Weather
@@ -12,8 +14,7 @@ namespace Demo.Elastic.Weather
     public class Startup
     {
         /// <summary>
-        /// This method gets called by the runtime.
-        /// Use this method to add services to the container.
+        /// This method gets called by the runtime. Use this method to add services to the container.
         /// </summary>
         public void ConfigureServices(IServiceCollection services)
         {
@@ -26,11 +27,14 @@ namespace Demo.Elastic.Weather
             services.AddOpenApiDocument(configure => {
                 configure.Title = "Demo.Elastic.DemoService";
             });
+
+            services.AddTransient<IFileProvider>(sp =>
+                new PhysicalFileProvider(Path.GetFullPath("App_Data"))
+            );
         }
 
         /// <summary>
-        /// This method gets called by the runtime.
-        /// Use this method to configure the HTTP request pipeline.
+        /// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         /// </summary>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {

@@ -1,13 +1,13 @@
-﻿namespace Demo.Elastic.Weather.Models
+using System;
+
+namespace FkThat.Sso.Models
 {
     public class WeatherModel
     {
-        public int Temperature { get; set; }
+        public DateTimeOffset Date { get; set; }
 
-        public int Pressure { get; set; }
+        public int TemperatureC { get; set; }
 
-        public int Humidity { get; set; }
-
-        public int Wind { get; set; }
+        public string? Summary { get; set; }
     }
 }
