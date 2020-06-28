@@ -11,6 +11,7 @@ services:
     - '80:80'
     - '443:443'
     environment: 
+    - 'ASPNETCORE_URLS=https://+:443;http://+:80'
     - 'ASPNETCORE_Kestrel__Certificates__Default__Path=skaro.ddns.net.pfx'
     - 'ASPNETCORE_Kestrel__Certificates__Default__Password=P@ssw0rd'
     volumes: 
