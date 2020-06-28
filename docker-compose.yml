@@ -3,16 +3,39 @@ version: '3.8'
 services:
 
   weather:
+    container_name: demoelastic-weather
     build:
       context: 'git@github.com:rodion73/Demo.Elastic.git#develop'
-      dockerfile: 'src/Demo.Elastic.Weather/Dockerfile'
-    container_name: demo-elastic-weather
+      dockerfile: src/Demo.Elastic.Weather/Dockerfile
+    restart: always
+    depends_on: 
+    - search
     ports:
     - '80:80'
     - '443:443'
-    environment: 
-    - 'ASPNETCORE_URLS=https://+:443;http://+:80'
-    - 'ASPNETCORE_Kestrel__Certificates__Default__Path=skaro.ddns.net.pfx'
-    - 'ASPNETCORE_Kestrel__Certificates__Default__Password=P@ssw0rd'
-    volumes: 
+    environment:
+      ASPNETCORE_URLS: 'https://+:443;http://+:80'
+      ASPNETCORE_Kestrel__Certificates__Default__Path: skaro.ddns.net.pfx
+      ASPNETCORE_Kestrel__Certificates__Default__Password: P@ssw0rd
+    volumes:
     - './skaro.ddns.net.pfx:/app/skaro.ddns.net.pfx:ro'
+
+  search:
+    container_name: demoelastic-search
+    image: elasticsearch:7.8.0
+    restart: always
+    ports:
+    - '9200:9200'
+    environment:
+    - 'discovery.type=single-node'
+
+  kibana:
+    container_name: demoelastic-kibana
+    image: kibana:7.8.0
+    restart: always
+    depends_on: 
+    - search
+    ports:
+    - '5601:5601'
+    environment:
+    - 'ELASTICSEARCH_HOSTS=http://demoelastic-search:9200'
