@@ -40,5 +40,23 @@ namespace Demo.Elastic.Weather.Controllers
                 .DeserializeAsync<IEnumerable<WeatherModel>>(stream, _jsonOptions)
                 .ConfigureAwait(false);
         }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style",
+            "IDE0060:Remove unused parameter", Justification = "Demo method.")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage",
+            "CA1801:Review unused parameters", Justification = "Demo method.")]
+        [HttpPost("")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        public void AddWeather([FromBody] WeatherModel model)
+        {
+        }
+
+        [HttpGet("500")]
+        [ProducesResponseType(500)]
+        public void GetError500()
+        {
+            throw new InvalidOperationException("This is a demo exception.");
+        }
     }
 }

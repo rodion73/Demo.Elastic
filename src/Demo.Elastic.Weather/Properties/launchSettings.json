@@ -1,9 +1,9 @@
-﻿{
+{
   "profiles": {
-    "Demo.Elastic.DemoService": {
+    "Demo.Elastic.Weather": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "/swagger",
+      "launchUrl": "swagger",
       "applicationUrl": "https://localhost:12301;http://localhost:60221",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
